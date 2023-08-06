@@ -1,22 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
+    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
-group = "me.devnatan.kbg"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(8)
+subprojects {
+    repositories {
+        mavenCentral()
+    }
 }
