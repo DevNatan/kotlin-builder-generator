@@ -1,16 +1,17 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.ksp)
 }
 
-group = "me.devnatan.kbg"
+group = "me.devnatan"
 version = "0.1.0-SNAPSHOT"
 
 kotlin {
     jvm()
-}
-
-dependencies {
-    commonMainImplementation(project(":lib"))
-    commonMainImplementation(libs.ksp)
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                implementation(libs.ksp)
+            }
+        }
+    }
 }
